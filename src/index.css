@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    overflow-x: hidden;
+    background-color: #0e0a0aa3;
+}
+
+svg.txt{
+    width:100%;
+}
+
+.slick-dots{
+    margin-top: 10px;
+}
+
+.slick-dots li{
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    transition-property: all;
+    transition-duration: 500ms;
+}
+
+.slick-dots li.slick-active{
+    width: 50px;
+    background-color: rgb(251 191 36);
+}
