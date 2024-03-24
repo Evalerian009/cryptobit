@@ -14,9 +14,9 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Loader from "./components/Loader";
 import { AnimatePresence } from 'framer-motion';
 
-const Home = lazy(() => import ('./pages/Home'));
-const About = lazy(() => import ('./pages/About'));
-const ServicesPage = lazy(() => import ('./pages/ServicesPage'));
+const Home = lazy(() => import ('./pages/home/Home'));
+const About = lazy(() => import ('./pages/about/About'));
+const ServicesPage = lazy(() => import ('./pages/services/ServicesPage'));
 
 const LocationProvider = ({children}) => ((
   <AnimatePresence>{ children }</AnimatePresence>
@@ -36,7 +36,7 @@ const AnimatedRoutes = () => {
     <Routes location={location} key={location.key}>
       <Route index element={<Home animation={routeVariants} />} />
       <Route path='/about' element={<About animation={routeVariants} />} />
-      <Route path='services' element={<ServicesPage animation={routeVariants} />} />
+      <Route path='/services' element={<ServicesPage animation={routeVariants} />} />
     </Routes>
   )
 }
@@ -48,14 +48,20 @@ function App() {
       setMenu(prev => !prev)
   ))
 
+  const closeMenu = () => (
+    setMenu(false)
+  )
+
   return (
-    <div className={`${menu ? 'overflow-y-hidden' : 'overflow-y-scroll'} w-screen h-screen overflow-x-hidde bg-stone-950 ${styles.maxWidth}`}>
+    <div className={`${menu ? 'overflow-y-hidden' : 'overflow-y-scroll'} w-screen h-screen overflow-x-hidden bg-stone-950 ${styles.maxWidth}`}>
         <Suspense fallback={<Loader />}>
           <BrowserRouter>
             <Navbar  menu={menu} handleMenu={handleMenu} />
-            <LocationProvider>
-              <AnimatedRoutes />
-            </LocationProvider>
+            <div onClick={closeMenu}>
+              <LocationProvider>
+                <AnimatedRoutes />
+              </LocationProvider>
+            </div>
             <Footer />
           </BrowserRouter>
         </Suspense>

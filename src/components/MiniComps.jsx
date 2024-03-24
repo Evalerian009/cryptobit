@@ -20,7 +20,7 @@ export const Button = ({ text }) => {
 
 export const AnimatedText = ({text, hovered }) => {
   return(
-    <span className={`text-transparent bg-gradient-to-r from-amber-400 from-50% to-stone-200 to-50% bg-[100%] bg-[length:201%_100%] bg-clip-text duration-[0.7s] ${hovered ? 'bg-[0%]' : ''} hover:bg-[0%]`}>
+    <span className={`text-transparent bg-gradient-to-r from-amber-400 from-50% to-stone-200 to-50% bg-[100%] bg-[length:201%_100%] bg-clip-text duration-[0.7s] ${hovered ? 'bg-[100%]' : 'bg-[0%]'} hover:bg-[0%]`}>
         {text}
     </span>
   )

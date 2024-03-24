@@ -10,17 +10,17 @@ const Navbar = ({ menu, handleMenu}) => {
             {/* Logo */}
             <Link href="/" className='text-[1.9rem]'>
                 <span className='font-bold text-white'>Crypto</span>
-                <span className='font-[300]  text-orange-500'>BIT</span>
+                <span className='font-[300]  text-amber-400'>BIT</span>
             </Link>
 
             {/* Desktop nav links */}
             <ul className='hidden lg:flex items-center gap-6 font-light'>
                 {navLinks.map(item => ((
-                    <li key={item.id} className='hover:text-orange-500 duration-300'>
+                    <li key={item.id} className='hover:text-amber-400 duration-300'>
                         <NavLink to={item.link}>{item.title}</NavLink>
                     </li>   
                 )))}
-                <button className="bg-yellow-600 text-black py-2 px-5 rounded">Regisiter</button>
+                <button className="bg-amber-400 text-black py-2 px-5 rounded">Regisiter</button>
             </ul>
 
             {/* mobile menubar */}
@@ -40,7 +40,7 @@ const Navbar = ({ menu, handleMenu}) => {
 
                 {/* Mobile menu links */}
                 {navLinks.map(item => ((
-                    <li key={item.id} className='hover:text-orange-500 duration-300'>
+                    <li key={item.id} onClick={handleMenu} className='hover:text-amber-500 duration-300'>
                         <NavLink to={item.link}>{item.title}</NavLink>
                     </li>   
                 )))}

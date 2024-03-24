@@ -2,19 +2,25 @@ import React from 'react'
 import { TiSocialFacebook } from "react-icons/ti";
 import { BiLogoTelegram } from "react-icons/bi";
 import { VscDash } from "react-icons/vsc";
-import SponsorsLogo from '../assets/sponsors-logo.png'
-import { styles } from './constants';
+import { animationVariants, styles } from './constants';
 import { AnimatedText } from './MiniComps';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
     <div className={`${styles.paddingX} ${styles.paddingY} bg-black`}>
         <div className={`${styles.maxWidth} mx-auto`}>
-            <div className='flex flex-col md:flex-row flex-wrap lg:justify-between gap-y-10'>
+            <motion.div 
+                className='flex flex-col md:flex-row flex-wrap lg:justify-between gap-y-10'
+                variants={animationVariants.slideInRight}
+                initial='initial'
+                whileInView='animate'
+                viewport={{once:true}}
+            >
                 <div className='md:w-1/2 lg:w-1/3 md:pr-10'>
                     <a href="/" className='text-[1.9rem]'>
                         <span className='font-bold text-white'>Crypto</span>
-                        <span className='font-[300]  text-orange-500'>BIT</span>
+                        <span className='font-[300]  text-amber-400'>BIT</span>
                     </a>
                     <p className='text-stone-400 mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, culpa? Perferendis temporibus perspiciatis, eveniet accusamus excepturi sunt doloremque, tempore officiis accusantium.</p>
                     <div className='mt-5'>
@@ -28,7 +34,7 @@ const Footer = () => {
                     <h2 className='text-stone-100 font-bold text-lg'>Useful Links</h2>
                     <div className='mt-3'>
                         <a href="" className='flex items-center text-stone-400'>
-                            <VscDash className='text-amber-500 text-4xl' />
+                            <VscDash className='text-amber-400 text-4xl' />
                             <AnimatedText text='What is ICO?' />
                         </a>
                     </div>
@@ -58,11 +64,11 @@ const Footer = () => {
                         </span>
                         
                         <div className='flex'>
-                            <img src={SponsorsLogo} alt="" />
+                            <img src='./sponsors-logo.png' alt="" />
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <div className='md:hidden lg:block my-10 bg-stone-400 w-full h-[1px]' />
 
@@ -75,7 +81,7 @@ const Footer = () => {
                 </span>
                 
                 <div className='flex'>
-                    <img src={SponsorsLogo} alt="" />
+                    <img src='./sponsors-logo.png' alt="" />
                 </div>
             </div>
         </div>
